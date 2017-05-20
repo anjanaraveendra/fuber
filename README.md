@@ -1,25 +1,24 @@
-# README
+Setup:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Clone: git clone https://github.com/anjanaraveendra/fuber.git
+Run Bundle Install
+rake db:create db:migrate db:seed
 
-Things you may want to cover:
+Api's
 
-* Ruby version
+/api/v1/rides:
 
-* System dependencies
+params: { source_lat, source_long & color pink if needed hipster }
 
-* Configuration
+/api/v1/rides/:id/start
 
-* Database creation
+params: { ride_id }
 
-* Database initialization
+/api/v1/rides/:id/end
 
-* How to run the test suite
+params: { destination_lat, destination_long }
 
-* Services (job queues, cache servers, search engines, etc.)
+/api/v1/rides/:id/payable_amount
 
-* Deployment instructions
+params: { ride_id }
 
-* ...
-# fuber
