@@ -1,0 +1,38 @@
+# == Schema Information
+#
+# Table name: rides
+#
+#  id               :integer          not null, primary key
+#  source_lat       :float
+#  source_long      :float
+#  start_time       :string
+#  end_time         :string
+#  destination_lat  :float
+#  destination_long :float
+#  status           :integer
+#  taxi_id          :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  source_lat: 1.5
+  source_long: 1.5
+  start_time: MyString
+  end_time: MyString
+  destination_lat: MyString
+  destination_long: MyString
+  status: 1
+  taxi: one
+
+two:
+  source_lat: 1.5
+  source_long: 1.5
+  start_time: MyString
+  end_time: MyString
+  destination_lat: MyString
+  destination_long: MyString
+  status: 1
+  taxi: two
