@@ -10,29 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170519200228) do
-
-  create_table "rides", force: :cascade do |t|
-    t.float    "source_lat"
-    t.float    "source_long"
-    t.datetime "start_time"
-    t.datetime "end_time"
-    t.float    "destination_lat"
-    t.float    "destination_long"
-    t.integer  "status",           default: 0
-    t.integer  "taxi_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
-    t.index ["taxi_id"], name: "index_rides_on_taxi_id"
+ActiveRecord::Schema.define(version: 20_170_519_200_228) do
+  create_table 'rides', force: :cascade do |t|
+    t.float    'source_lat'
+    t.float    'source_long'
+    t.datetime 'start_time'
+    t.datetime 'end_time'
+    t.float    'destination_lat'
+    t.float    'destination_long'
+    t.integer  'status', default: 0
+    t.integer  'taxi_id'
+    t.datetime 'created_at',                   null: false
+    t.datetime 'updated_at',                   null: false
+    t.index ['taxi_id'], name: 'index_rides_on_taxi_id'
   end
 
-  create_table "taxis", force: :cascade do |t|
-    t.float    "latitude"
-    t.float    "longitude"
-    t.string   "color"
-    t.boolean  "assigned",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+  create_table 'taxis', force: :cascade do |t|
+    t.float    'latitude'
+    t.float    'longitude'
+    t.string   'color'
+    t.boolean  'assigned', default: false
+    t.datetime 'created_at',                 null: false
+    t.datetime 'updated_at',                 null: false
   end
-
 end

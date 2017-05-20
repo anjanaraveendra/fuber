@@ -1,11 +1,10 @@
 class Api::V1::RidesController < Api::V1::BaseController
-
-	before_action :set_ride, only: [:start, :end, :payable_amount]
+  before_action :set_ride, only: %i[start end payable_amount]
 
   def create
     ride = Ride.new(source_lat: ride_params[:source_lat],
-                       source_long: ride_params[:source_long],
-                       conditions: { color: ride_params[:color] })
+                    source_long: ride_params[:source_long],
+                    conditions: { color: ride_params[:color] })
     if ride.save
       render json: { ride_id: ride.id, message: 'Taxi Assigned Successfully' }
     else
@@ -31,7 +30,7 @@ class Api::V1::RidesController < Api::V1::BaseController
   private
 
   def set_ride
-  	@ride = Ride.find(params[:id])
+    @ride = Ride.find(params[:id])
   end
 
   def ride_params

@@ -1,12 +1,10 @@
 class Ride::HaltedRideState < Ride::BaseRideState
   def start
     ride = @ride.update_attributes(start_time: DateTime.current, status: 'started')
-    if ride
-      'Ride Started Successfully'
-    end
+    'Ride Started Successfully' if ride
   end
 
-  def end(destination)
+  def end(_destination)
     'Cannot End an Unstarted Ride'
   end
 

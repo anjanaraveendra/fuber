@@ -1,5 +1,4 @@
 class Ride::BaseRideState
-
   def initialize(ride)
     @ride = ride
   end

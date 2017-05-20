@@ -23,11 +23,11 @@ class Ride < ApplicationRecord
 
   validates :source_long, :source_lat, presence: true
   validates :taxi, presence: true
-  validates :destination_lat, presence: true, if: Proc.new { |ride| ride.ended? }
-  validates :destination_long, presence: true, if: Proc.new { |ride| ride.ended? }
+  validates :destination_lat, presence: true, if: proc { |ride| ride.ended? }
+  validates :destination_long, presence: true, if: proc { |ride| ride.ended? }
   before_validation :assign_available_taxi
 
-  enum status: [:halted, :started, :ended]
+  enum status: %i[halted started ended]
 
   after_initialize :set_state
 
@@ -51,6 +51,6 @@ class Ride < ApplicationRecord
 
   def assign_available_taxi
     self.taxi = AvailableTaxi.nearest_to(source_lat, source_long, conditions)
-    self.taxi.assign if self.taxi
+    taxi.assign if taxi
   end
 end

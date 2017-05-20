@@ -3,7 +3,7 @@ class Ride::EndedRideState < Ride::BaseRideState
     'Cannot Start an Ended Ride'
   end
 
-  def end(destination)
+  def end(_destination)
     'Cannot End an Ended Ride'
   end
 
@@ -19,7 +19,7 @@ class Ride::EndedRideState < Ride::BaseRideState
 
   def travelled_distance
     @ride.distance_between(@ride.source_lat, @ride.source_long,
-                              @ride.destination_lat, @ride.destination_long)
+                           @ride.destination_lat, @ride.destination_long)
   end
 
   def extras

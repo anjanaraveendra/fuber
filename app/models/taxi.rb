@@ -12,8 +12,8 @@
 #
 
 class Taxi < ApplicationRecord
-	include Location
-	validates :latitude, :longitude, presence: true
+  include Location
+  validates :latitude, :longitude, presence: true
 
   def distance_to(latitude, longitude)
     distance_between(self.latitude, self.longitude, latitude, longitude)
